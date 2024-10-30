@@ -45,6 +45,7 @@ tmax_boxplot <- ny_noaa_clean |>
   layout(title = "Max Temperature by Month", 
          xaxis = list(title = "Month"), 
          yaxis = list(title = "Temperature (°C)"))
+ggplotly(tmax_boxplot)
 ```
 
 Column {data-width=350}
@@ -62,6 +63,7 @@ prcp_scatter <- ny_noaa_clean |>
   layout(title = "Monthly Precipitation Levels",
          xaxis = list(title = "Month"),
          yaxis = list(title = "Precipitation (mm)"))
+ggplotly(prcp_scatter)
 ```
 
 ### Chart C
@@ -80,5 +82,6 @@ snow_filtered <- ny_noaa_clean |>
          xaxis = list(title = "Year"), 
          yaxis = list(title = "Snowfall (mm)"), 
          legend = list(orientation = "h", x = 0.5, xanchor = "center", y = -0.2))
+ggplotly(snow_filtered)
 ```
 
