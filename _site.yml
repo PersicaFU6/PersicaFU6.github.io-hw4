@@ -1,0 +1,18 @@
+name: "Yujing FU"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About me"
+      href: about.html
+    - text: "Plotly"
+      href: plotly.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<yf2735@cumc.columbia.edu>
+    - icon: fa-github fa-lg
+      href: http://github.com/PersicaFU6/
+    - icon: fa-brands fa-linkedin
+      href: https://www.linkedin.com/in/yujing-persica-fu-14242521a/
+output:
+  html_document:
+    theme: readable

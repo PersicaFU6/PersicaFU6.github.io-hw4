@@ -1,0 +1,12 @@
+---
+title: "About me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+## Overview
+Yujing Fu is a Biostatistics Master's candidate at Columbia University with a strong foundation in economics and data analysis. With experience in SQL, Python, and various data visualization tools, Yujing has demonstrated expertise in data extraction, dashboard development, and statistical analysis. Yujing's previous roles include analyzing data for startup operations, optimizing data models in large-scale projects, and conducting in-depth market research and reporting in consulting settings. Known for an analytical mindset and proficiency in delivering actionable insights, Yujing combines technical skills with a solid understanding of economic and medical data applications.
+
+## Academic & Professional Experience
+Click [resume](resume.pdf) to know more about my academic & professional experience.

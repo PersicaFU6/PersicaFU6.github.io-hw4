@@ -1,0 +1,32 @@
+---
+title: "Yujing's Personal Website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## Introduction
+
+Hi! This is Yujing FU (Persica)~ This is my personal website! 
+Welcome and please click around to know more about me!
+
+
+## Education
+
+**Columbia University, United States**  
+M.S. Biostatistics  
+_Sep. 2024 – May. 2026_
+
+**University of Nottingham Ningbo, China**  
+BSc (Hons) Economics, GPA: 3.81/4.00  
+_Sep. 2020 – Jul. 2024_  
+Related Modules: Python, Health Economics, Microeconomic & Macroeconomic Theory, Econometrics I & II, Intermediate Mathematical Economics, Mathematical Economics and Econometrics.  
+**Honor**: 2021-2022 UNNC President’s Scholarship (Top 1%)
+
+## Skills
+- **Software**: Python, SQL, Stata, Tableau, PowerBI, MS Office (Excel, Word, PowerPoint)
+- **Habits**: Panting, Hiking, Calligraphy
+
+## More details about me
+- [About me](about.html)

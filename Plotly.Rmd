@@ -1,0 +1,85 @@
+---
+title: "Plotly"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+library(dplyr)
+library(janitor)
+data("ny_noaa")
+```
+
+```{r}
+ny_noaa_clean =
+  ny_noaa |> 
+  mutate(across(c(prcp, snow, snwd, tmax, tmin), as.numeric)) |> 
+  separate(date, into = c("year", "month", "day"), sep = "-") |> 
+  mutate(across(c(year, month, day), as.numeric)) |> 
+  mutate(tmax = tmax/10, #°C
+         tmin = tmin/10,
+         prcp = prcp/10) |>  #mm 
+  drop_na()
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Boxplot
+
+```{r}
+tmax_boxplot <- ny_noaa_clean |> 
+  mutate(month = factor(month)) |> 
+  plot_ly(x = ~month, 
+          y = ~tmax, 
+          color = ~month, 
+          type = "box", 
+          colors = "viridis") |>
+  layout(title = "Max Temperature by Month", 
+         xaxis = list(title = "Month"), 
+         yaxis = list(title = "Temperature (°C)"))
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Scatter Plot
+
+```{r}
+prcp_scatter <- ny_noaa_clean |> 
+  sample_frac(0.1) |> 
+  plot_ly(x = ~month, 
+          y = ~prcp, 
+          type = "scatter", 
+          mode = "markers", 
+          marker = list(color = 'blue', opacity = 0.6)) |>
+  layout(title = "Monthly Precipitation Levels",
+         xaxis = list(title = "Month"),
+         yaxis = list(title = "Precipitation (mm)"))
+```
+
+### Violin Plot
+
+```{r}
+snow_filtered <- ny_noaa_clean |>
+  sample_frac(0.1) |> 
+  drop_na(snow) |>
+  mutate(year = factor(year)) |>
+  plot_ly(x = ~year, 
+          y = ~snow, 
+          color = ~year, 
+          type = "violin", 
+          alpha = 0.6, 
+          colors = "viridis") |>
+  layout(title = "Distribution of Snowfall by Year (0-100 mm)", 
+         xaxis = list(title = "Year"), 
+         yaxis = list(title = "Snowfall (mm)"), 
+         legend = list(orientation = "h", x = 0.5, xanchor = "center", y = -0.2))
+```
+

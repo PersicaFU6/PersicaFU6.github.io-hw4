@@ -1,7 +1,0 @@
----
-title: "p8105_hw4_yf2735"
-author: "Yujing FU"
-date: "2024-10-30"
-output: html_document
----
-
