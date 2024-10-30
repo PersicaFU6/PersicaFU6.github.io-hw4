@@ -19,6 +19,7 @@ data("ny_noaa")
 ```{r}
 ny_noaa_clean =
   ny_noaa |> 
+  sample_frac(0.1) |> 
   mutate(across(c(prcp, snow, snwd, tmax, tmin), as.numeric)) |> 
   separate(date, into = c("year", "month", "day"), sep = "-") |> 
   mutate(across(c(year, month, day), as.numeric)) |> 
@@ -31,7 +32,7 @@ ny_noaa_clean =
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Boxplot
+### Chart A
 
 ```{r}
 tmax_boxplot <- ny_noaa_clean |> 
@@ -49,11 +50,10 @@ tmax_boxplot <- ny_noaa_clean |>
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Scatter Plot
+### Chart B
 
 ```{r}
 prcp_scatter <- ny_noaa_clean |> 
-  sample_frac(0.1) |> 
   plot_ly(x = ~month, 
           y = ~prcp, 
           type = "scatter", 
@@ -64,11 +64,10 @@ prcp_scatter <- ny_noaa_clean |>
          yaxis = list(title = "Precipitation (mm)"))
 ```
 
-### Violin Plot
+### Chart C
 
 ```{r}
 snow_filtered <- ny_noaa_clean |>
-  sample_frac(0.1) |> 
   drop_na(snow) |>
   mutate(year = factor(year)) |>
   plot_ly(x = ~year, 
@@ -77,7 +76,7 @@ snow_filtered <- ny_noaa_clean |>
           type = "violin", 
           alpha = 0.6, 
           colors = "viridis") |>
-  layout(title = "Distribution of Snowfall by Year (0-100 mm)", 
+  layout(title = "Distribution of Snowfall by Year", 
          xaxis = list(title = "Year"), 
          yaxis = list(title = "Snowfall (mm)"), 
          legend = list(orientation = "h", x = 0.5, xanchor = "center", y = -0.2))
