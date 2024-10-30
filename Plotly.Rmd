@@ -32,7 +32,7 @@ ny_noaa_clean =
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Box Plot
 
 ```{r}
 tmax_boxplot <- ny_noaa_clean |> 
@@ -51,7 +51,7 @@ ggplotly(tmax_boxplot)
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Scatter Plot
 
 ```{r}
 prcp_scatter <- ny_noaa_clean |> 
@@ -66,7 +66,7 @@ prcp_scatter <- ny_noaa_clean |>
 ggplotly(prcp_scatter)
 ```
 
-### Chart C
+### Violin Plot
 
 ```{r}
 snow_filtered <- ny_noaa_clean |>
