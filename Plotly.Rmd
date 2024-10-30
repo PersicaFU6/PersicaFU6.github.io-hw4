@@ -32,7 +32,7 @@ ny_noaa_clean =
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Box Plot
+### Chart A
 
 ```{r}
 tmax_boxplot <- ny_noaa_clean |> 
@@ -51,7 +51,7 @@ ggplotly(tmax_boxplot)
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Scatter Plot
+### Chart B
 
 ```{r}
 prcp_scatter <- ny_noaa_clean |> 
@@ -66,7 +66,7 @@ prcp_scatter <- ny_noaa_clean |>
 ggplotly(prcp_scatter)
 ```
 
-### Violin Plot
+### Chart C
 
 ```{r}
 snow_filtered <- ny_noaa_clean |>
@@ -78,7 +78,7 @@ snow_filtered <- ny_noaa_clean |>
           type = "violin", 
           alpha = 0.6, 
           colors = "viridis") |>
-  layout(title = "Distribution of Snowfall by Year", 
+  layout(title = "Distribution of Snowfall by Year (Violin Plot)", 
          xaxis = list(title = "Year"), 
          yaxis = list(title = "Snowfall (mm)"), 
          legend = list(orientation = "h", x = 0.5, xanchor = "center", y = -0.2))
